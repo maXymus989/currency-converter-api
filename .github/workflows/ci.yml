@@ -21,8 +21,10 @@ jobs:
       - name: Build
         run: dotnet build CurrencyConverterAPI/CurrencyConverterAPI.csproj --configuration Release --no-restore
 
+      - name: List test results directory
+        run: ls -R TestResults
+
       - name: Run tests
         run: dotnet test CurrencyConverterAPI.Tests/CurrencyConverterAPI.Tests.csproj --configuration Release --no-build --logger trx --results-directory TestResults
 
-      - name: List test results directory
-        run: ls -R TestResults
+      
