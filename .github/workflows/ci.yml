@@ -16,7 +16,7 @@ jobs:
           dotnet-version: 7.0.x
 
       - name: Restore dependencies
-        run: dotnet restore CurrencyConverterAPI/CurrencyConverterAPI.csproj
+        run: dotnet restore
 
       - name: Build API
         run: dotnet build CurrencyConverterAPI/CurrencyConverterAPI.csproj --configuration Release --no-restore
