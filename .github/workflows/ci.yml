@@ -21,9 +21,8 @@ jobs:
       - name: Build
         run: dotnet build CurrencyConverterAPI/CurrencyConverterAPI.csproj --configuration Release --no-restore
 
-      - name: Find all DLLs
-        run: find . -name "*.dll"
-
+      - name: List test files
+        run: find CurrencyConverterAPI.Tests -name "*.cs"
 
       - name: Run tests
         run: dotnet test CurrencyConverterAPI.Tests/CurrencyConverterAPI.Tests.csproj --configuration Release --no-build --logger trx --results-directory TestResults --verbosity diagnostic
