@@ -1,0 +1,10 @@
+# Visual Studio і .NET файли
+bin/
+obj/
+.vscode/
+*.user
+*.suo
+*.log
+*.sln.cache
+TestResults/
+Build/
