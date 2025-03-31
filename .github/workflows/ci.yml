@@ -28,8 +28,11 @@ jobs:
         run: dotnet build CurrencyConverterAPI.Tests/CurrencyConverterAPI.Tests.csproj --configuration Release --no-restore
 
 
-      - name: List test files
-        run: find CurrencyConverterAPI.Tests -name "*.cs"
+      - name: Upload test results
+        uses: actions/upload-artifact@v3
+        with:
+          name: Test Results
+          path: TestResults/test-results.trx
 
       - name: Run tests
         run: dotnet test CurrencyConverterAPI.Tests/CurrencyConverterAPI.Tests.csproj --configuration Release --no-build --logger trx --results-directory TestResults
