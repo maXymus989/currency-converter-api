@@ -18,13 +18,17 @@ jobs:
       - name: Restore dependencies
         run: dotnet restore CurrencyConverterAPI/CurrencyConverterAPI.csproj
 
-      - name: Build
+      - name: Build API
         run: dotnet build CurrencyConverterAPI/CurrencyConverterAPI.csproj --configuration Release --no-restore
+
+      - name: Build Tests
+        run: dotnet build CurrencyConverterAPI.Tests/CurrencyConverterAPI.Tests.csproj --configuration Release --no-restore
+
 
       - name: List test files
         run: find CurrencyConverterAPI.Tests -name "*.cs"
 
       - name: Run tests
-        run: dotnet test CurrencyConverterAPI.Tests/CurrencyConverterAPI.Tests.csproj --configuration Release --no-build --logger trx --results-directory TestResults --verbosity diagnostic
+        run: dotnet test CurrencyConverterAPI.Tests/CurrencyConverterAPI.Tests.csproj --configuration Release --no-build --logger trx --results-directory TestResults
 
       
